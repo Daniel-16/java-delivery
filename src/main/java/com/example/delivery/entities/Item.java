@@ -13,20 +13,17 @@ public class Item {
     private String name;
     private float weight;
     private String code;
-
-    // Default constructor
+    
     public Item() {
     }
-
-    // All-args constructor
+    
     public Item(Long id, String name, float weight, String code) {
         this.id = id;
         this.name = name;
         this.weight = weight;
         this.code = code;
     }
-
-    // Getters and Setters
+    
     public Long getId() {
         return id;
     }

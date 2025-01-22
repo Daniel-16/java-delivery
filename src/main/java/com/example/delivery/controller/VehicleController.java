@@ -14,7 +14,7 @@ import com.example.delivery.services.VehicleService;
 public class VehicleController {
 
     private VehicleService vehicleService;
-
+    
     public VehicleController(VehicleService vehicleService) {
         this.vehicleService = vehicleService;
     }
