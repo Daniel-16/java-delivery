@@ -22,4 +22,10 @@ public class ItemServiceImpl implements ItemServices {
         itemRepository.deleteById(id);
     }
 
+    @Override
+    public Item getItemById(Long id) {
+        return itemRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Item not found with id: " + id));
+    }
+
 }
