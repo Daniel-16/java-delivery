@@ -12,10 +12,7 @@ public class Item {
     private Long id;
     private String name;
     private float weight;
-    private String code;
-    
-    public Item() {
-    }
+    private String code;        
     
     public Item(Long id, String name, float weight, String code) {
         this.id = id;

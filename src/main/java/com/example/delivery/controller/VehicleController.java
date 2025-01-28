@@ -10,18 +10,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.delivery.entities.Item;
 import com.example.delivery.entities.Vehicle;
+import com.example.delivery.services.ItemServices;
 import com.example.delivery.services.VehicleService;
-
-import jakarta.websocket.server.PathParam;
 
 @RestController
 @RequestMapping("/api/v1/vehicle")
 public class VehicleController {
 
     private VehicleService vehicleService;
+
+    private final ItemServices itemServices;
     
-    public VehicleController(VehicleService vehicleService) {
+    public VehicleController(VehicleService vehicleService, ItemServices itemServices) {
         this.vehicleService = vehicleService;
+        this.itemServices = itemServices;
     }
 
     @PostMapping("/create-vehicle")

@@ -1,5 +1,7 @@
 package com.example.delivery.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.delivery.entities.Item;
@@ -23,9 +25,13 @@ public class ItemServiceImpl implements ItemServices {
     }
 
     @Override
+    public List<Item> getAllItems() {
+        return itemRepository.findAll();
+    }
+
+    @Override
     public Item getItemById(Long id) {
-        return itemRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Item not found with id: " + id));
+        return itemRepository.findById(id).get();
     }
 
 }

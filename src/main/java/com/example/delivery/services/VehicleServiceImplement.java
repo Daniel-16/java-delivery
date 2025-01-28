@@ -1,6 +1,7 @@
 package com.example.delivery.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -22,21 +23,28 @@ public class VehicleServiceImplement implements VehicleService {
     }
 
     @Override
-    public Vehicle updatVehicle(Long id, Vehicle vehicle) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updatVehicle'");
+    public Vehicle updateVehicle(Long id, Vehicle vehicle) {
+        Optional<Vehicle> optionalVehicle = this.vehicleRepository.findById(id);
+        if (optionalVehicle.isPresent()) {
+            Vehicle newVehicle = optionalVehicle.get();
+            newVehicle.setName(vehicle.getName());
+            newVehicle.setItems(vehicle.getItems());
+
+            vehicleRepository.save(newVehicle);
+            return newVehicle;
+        } else {
+            throw new RuntimeException("Record not found");
+        }        
     }
 
     @Override
     public List<Vehicle> getAllVehicles() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllVehicles'");
+        return vehicleRepository.findAll();
     }
 
     @Override
-    public Vehicle getVehicleByPlateNumber(String number) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getVehicleByPlateNumber'");
+    public Vehicle getVehicleByPlateNumber(String plateNumber) {
+        return vehicleRepository.getVehicleByPlateNumber(plateNumber);
     }
 
     @Override

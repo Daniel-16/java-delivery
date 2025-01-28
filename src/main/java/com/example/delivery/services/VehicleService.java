@@ -6,8 +6,8 @@ import com.example.delivery.entities.Vehicle;
 
 public interface VehicleService {
     Vehicle createVehicle(Vehicle vehicle);
-    Vehicle updatVehicle(Long id, Vehicle vehicle);
+    Vehicle updateVehicle(Long id, Vehicle vehicle);
     List<Vehicle> getAllVehicles();
-    Vehicle getVehicleByPlateNumber(String number);
+    Vehicle getVehicleByPlateNumber(String plateNumber);
     void deleteVehicle(Long id);
 }

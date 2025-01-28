@@ -15,4 +15,6 @@ public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
     List<Vehicle> getVehiclesStatus(@Param("status") String status);
 
     List<Vehicle> getVechiclesByCarryingWeightGreaterThan(float weight);
+
+    Vehicle getVehicleByPlateNumber(String plateNumber);
 }
