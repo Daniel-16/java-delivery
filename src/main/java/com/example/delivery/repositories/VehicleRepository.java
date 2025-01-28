@@ -11,7 +11,7 @@ import com.example.delivery.entities.Vehicle;
 
 @Repository
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
-    @Query("SELECT status FROM Vehicle WHERE status.status = 'IDLE'")
+    @Query("SELECT v FROM Vehicle v WHERE v.status = :status")
     List<Vehicle> getVehiclesStatus(@Param("status") String status);
 
     List<Vehicle> getVechiclesByCarryingWeightGreaterThan(float weight);
